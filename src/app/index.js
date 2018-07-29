@@ -1,18 +1,26 @@
-import {
-  log
-} from './util'
-import './styles/styles.css'
+import angular from 'angular'
+import angularGrid from 'angulargrid'
+import ngRoute from 'angular-route'
 
-const me = {
-  name: 'juan',
-  city: 'bacelona'
-}
-const you = { ...me
-}
+import MainCtrl from './controllers/MainCtrl'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import AuthComponent from './components/auth'
+import HomeComponent from './components/home'
 
-const him = me
-console.log(you === me)
+const MODULE_NAME = 'SocialApp'
+angular
+  .module(MODULE_NAME, [
+    ngRoute,
+    AuthComponent,
+    HomeComponent,
+    angularGrid
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', { template: '<auth></auth>' })
+      .when('/home', { template: '<home></home>' })
+  })
+  .controller('MainCtrl', MainCtrl)
+  .run()
 
-console.log(him === me)
-
-log('hola mundo')
+export default MODULE_NAME

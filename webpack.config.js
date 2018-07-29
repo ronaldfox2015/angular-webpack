@@ -30,9 +30,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      { template: './src/public/index.html' }
-    ),
+    new HtmlWebpackPlugin({ template: './src/public/index.html' }),
     new ExtractTextPlugin('styles.css')
   ],
   devServer: {
