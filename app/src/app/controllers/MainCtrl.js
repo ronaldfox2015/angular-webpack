@@ -1,5 +1,7 @@
 class MainCtrl {
-  constructor () {}
+  constructor () {
+    console.log('MainCtrl')
+  }
 }
 
 export default MainCtrl

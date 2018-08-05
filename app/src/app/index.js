@@ -9,6 +9,8 @@ import MainCtrl from './controllers/MainCtrl'
 import AuthComponent from './components/auth'
 import HomeComponent from './components/home'
 import PublishComponent from './components/publish'
+import personalInformationComponent from './components/personal-information'
+
 import AuthService from './services/AuthService'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/home.css'
@@ -18,6 +20,7 @@ angular
   .module(MODULE_NAME, [
     ngRoute,
     NavbarComponent,
+    personalInformationComponent,
     PostComponent,
     NavigateComponent,
     AuthComponent,
@@ -33,6 +36,9 @@ angular
 
       .when('/login', {
         template: '<auth></auth>'
+      })
+      .when('/personal', {
+        template: '<personal-information></personal-information>'
       })
   })
   .service('AuthService', AuthService)
